@@ -6,7 +6,6 @@ router = APIRouter()
 @router.get("/join")
 async def join_data():
     users = list(db.users.find({}))
-    # Example join operation, adjust based on your collections and requirements
     for user in users:
         user_data = db.another_collection.find_one({"user_id": user["_id"]})
         user["extra_data"] = user_data
